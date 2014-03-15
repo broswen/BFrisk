@@ -1,0 +1,30 @@
+name: BFrisk
+version: 2.0
+author: broswen
+description: a custom frisk plugin by broswen
+main: me.broswen.bfrisk.BFrisk
+
+commands:
+  bfrisk:
+    description: the main admin command
+  frisk:
+    description: the frisk command
+  friskstick:
+    description: spawns you a friskstick
+
+permissions:
+  bfrisk.info:
+    description: allows you to use the admin command
+    default: op
+    
+  bfrisk.frisk:
+    description: allows you to use the frisk command
+    default: op
+    
+  bfrisk.exempt:
+    description: stops a player from being frisked
+    default: op
+    
+  bfrisk.friskstick:
+    description: allows you to spawn a friskstick
+    default: op
