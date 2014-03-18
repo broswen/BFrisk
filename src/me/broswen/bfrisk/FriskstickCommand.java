@@ -31,7 +31,26 @@ public class FriskstickCommand implements CommandExecutor{
 		}
 		
 		if(sender instanceof Player){
-			Player player = (Player) sender;
+			final Player player = (Player) sender;
+			
+			if(plugin.getConfig().getBoolean("use-friskstick-delay")){
+				if(plugin.friskstickList.containsKey(player.getName())){
+					player.sendMessage(plugin.prefix + ChatColor.RED + "You must wait " + plugin.getConfig().getInt("friskstick-delay") + " seconds between each frisk!");
+					return true;
+				}
+				
+				plugin.friskstickList.put(player.getName(), null);
+				
+				plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
+
+					@Override
+					public void run() {
+						plugin.friskstickList.remove(player.getName());
+						
+					}
+					
+				}, plugin.getConfig().getInt("friskstick-delay") * 20);
+			}
 			
 			player.sendMessage(plugin.prefix + "You recieved a friskstick!");
 			player.getInventory().addItem(friskstick);

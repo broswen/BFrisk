@@ -1,0 +1,19 @@
+# THIS MAY SEEM CONFUSING, REFERENCE THE HELP SECTION OR ASK THE DEVELOPER HIMSELF
+# FRISK - A CUSTOM FRISK PLUGIN MADE BY BROSWEN
+#                         
+use-economy: true
+drug-reward: 1000
+para-reward: 500
+move-drugs: false
+use-frisk-delay: true
+frisk-delay: 30
+use-frisktick-delay: true
+friskstick-delay: 240
+jail-location:
+  world: world
+  x: 1
+  y: 70
+  z: 3
+use-jail-plugin: false
+jail-name: jail
+jail-time: 120

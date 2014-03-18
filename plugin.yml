@@ -3,6 +3,7 @@ version: 2.0
 author: broswen
 description: a custom frisk plugin by broswen
 main: me.broswen.bfrisk.BFrisk
+softdepend: [Vault]
 
 commands:
   bfrisk:
@@ -23,8 +24,12 @@ permissions:
     
   bfrisk.exempt:
     description: stops a player from being frisked
-    default: op
+    default: false
     
   bfrisk.friskstick:
     description: allows you to spawn a friskstick
+    default: op
+    
+  bfrisk.setjail:
+    description: allows you to set the jail coordinates
     default: op

@@ -1,8 +1,10 @@
 package me.broswen.bfrisk;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,20 +26,19 @@ public class PlayerListener implements Listener{
 		im.setDisplayName(ChatColor.AQUA + "Friskstick");
 		friskstick.setItemMeta(im);
 		
-		int i = 0;
-		for(i = 0; i < 64; i++, friskstick.setAmount(friskstick.getAmount() + 1)){
-			
-			if(!(targetPlayer instanceof Player)){
-				return;
-			}
-			
-			if(!player.getItemInHand().equals(friskstick)){
-				return;
-			}
-			
-			player.sendMessage("friskstick");
-			
+		if(!(player.getItemInHand().getItemMeta().getDisplayName() == friskstick.getItemMeta().getDisplayName())){
+			return;
 		}
+		
+		if(!(targetPlayer instanceof Player)){
+			return;
+		}
+		
+		if(!player.hasPermission("bfrisk.friskstick")){
+			return;
+		}
+		
+		Bukkit.dispatchCommand(player, "frisk " + ((HumanEntity) targetPlayer).getName());
 	}
 	
 }
