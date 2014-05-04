@@ -3,7 +3,6 @@
 #                         
 use-economy: true
 drug-reward: 1000
-para-reward: 500
 move-drugs: false
 use-frisk-delay: true
 frisk-delay: 30

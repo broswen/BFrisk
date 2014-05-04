@@ -144,7 +144,7 @@ public class FriskCommand implements CommandExecutor{
 	public boolean hasDrug(Player targetPlayer){
 		Inventory inv = targetPlayer.getInventory();
 		
-		if(inv.contains(Material.SUGAR) || inv.contains(Material.PUMPKIN_SEEDS) || inv.contains(Material.WHEAT) || inv.contains(Material.MELON_SEEDS) || hasItem(targetPlayer, Material.INK_SACK, (short) 2) || hasItem(targetPlayer, Material.INK_SACK, (short) 3)){
+		if(inv.contains(Material.SUGAR) || inv.contains(Material.NETHER_STALK) || inv.contains(Material.PUMPKIN_SEEDS) || inv.contains(Material.WHEAT) || inv.contains(Material.MELON_SEEDS) || hasItem(targetPlayer, Material.INK_SACK, (short) 2) || hasItem(targetPlayer, Material.INK_SACK, (short) 3)){
 			return true;
 		}
 	
