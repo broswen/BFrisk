@@ -13,8 +13,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 public class BFrisk extends JavaPlugin{
 	public static BFrisk plugin;
@@ -73,14 +71,22 @@ public class BFrisk extends JavaPlugin{
 	}
 
 	public void addItemsInventory(Inventory inv, Player targetPlayer) {
-		Inventory targetPlayerInventory = targetPlayer.getInventory();
-		int targetPlayerInventorySize = targetPlayerInventory.getSize();
+		Inventory inv2 = targetPlayer.getInventory();
+		int invSize = inv2.getSize();
 		
-		for(int i = 0 ; i < targetPlayerInventorySize ; i++) {
-			ItemStack item = targetPlayerInventory.getItem(i);
+		for(int i = 0 ; i < invSize ; i++) {
+			ItemStack item = inv2.getItem(i);
 			
 			if(item != null){
-				inv.addItem(item);
+				int amount = item.getAmount();
+				short dura = item.getDurability();
+				
+				ItemStack item2 = new ItemStack(item.getType());
+				item2.setDurability(dura);
+				
+				for(int i2=0; i2<amount; i2++){
+					inv.addItem(item2);
+				}
 			}
 		}
 	}
