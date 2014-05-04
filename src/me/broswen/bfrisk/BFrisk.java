@@ -121,15 +121,25 @@ public class BFrisk extends JavaPlugin{
 			
 			if(item != null){
 			    if(item.getType() == Material.INK_SACK && item.getData().getData() == (short) 3 || item.getType() == Material.INK_SACK && item.getData().getData() == (short) 2 || item.getType() == Material.PUMPKIN_SEEDS || item.getType() == Material.MELON_SEEDS || item.getType() == Material.SUGAR || item.getType() == Material.NETHER_STALK || item.getType() == Material.WHEAT || item.getType() == Material.PUMPKIN || item.getType() == Material.SUGAR_CANE){
-			    	targetPlayer.getInventory().remove(item);
+			    	int amount = item.getAmount();
+			    	ItemStack item2 = new ItemStack(item.getType(), amount);
+			    	
+					short dura = item.getDurability();
+					item2.setDurability(dura);
+			    	
+			    	targetPlayer.getInventory().setItem(i, null);
+			    	//targetPlayer.getInventory().remove(item2);
 			    	targetPlayer.updateInventory();
 			    	
-			    	if(player.getInventory().firstEmpty() == -1){
-			    		player.getWorld().dropItemNaturally(player.getLocation(), item);
-			    	}else{
-			    		player.getInventory().addItem(item);
-				    	player.updateInventory();
-			    	}
+			    	player.getInventory().addItem(item2);
+			    	player.updateInventory();
+			    	
+//			    	if(player.getInventory().firstEmpty() == -1){
+//			    		player.getWorld().dropItemNaturally(player.getLocation(), item);
+//			    	}else{
+//			    		player.getInventory().addItem(item);
+//				    	player.updateInventory();
+//			    	}
 			    }
 			}
 		}
