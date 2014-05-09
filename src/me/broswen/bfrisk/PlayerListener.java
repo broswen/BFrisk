@@ -36,8 +36,7 @@ public class PlayerListener implements Listener{
 		friskStickMeta.setDisplayName(ChatColor.RESET.AQUA + "Friskstick");
 		friskStick.setItemMeta(friskStickMeta);
 		
-		int i = 0;
-		for(i = 0; i < 64; i++, friskStick.setAmount(friskStick.getAmount() + 1)){
+		for(int i = 0; i < 64; i++, friskStick.setAmount(friskStick.getAmount() + 1)){
 			
 			if(player.getItemInHand().equals(friskStick)){
 				
