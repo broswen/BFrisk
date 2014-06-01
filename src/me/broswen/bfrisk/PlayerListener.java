@@ -44,7 +44,7 @@ public class PlayerListener implements Listener{
 					String targetPlayerName = ((HumanEntity) targetPlayer).getName();
 					
 					if(player.hasPermission("bfrisk.frisk")){
-						Bukkit.dispatchCommand(player, "frisk " + targetPlayerName);
+						player.chat("frisk " + targetPlayerName);
 					}
 				}
 			}
